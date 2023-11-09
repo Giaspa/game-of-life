@@ -4,6 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "github build": "ng build --base-href \"https://Giaspa.github.io/game-of-life/\"",
+    "github deploy": "npx angular-cli-ghpages --dir=dist/game-of-life",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
