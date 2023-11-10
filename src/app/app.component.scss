@@ -9,11 +9,13 @@ div {
         display: flex;
         gap: 10px;
         flex-direction: column;
+        border-radius: 10px;
     }
 
     & > .container--header {
         background-color: $dark-green;
         padding: 5px;
+        border-radius: 3px;
     }
 
     & > .container--grid {

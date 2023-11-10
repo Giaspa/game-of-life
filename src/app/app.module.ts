@@ -13,7 +13,7 @@ import { GolHeaderComponent } from './components/gol-header/gol-header.component
     AppComponent,
     GolGridComponent,
     GolCellComponent,
-    GolHeaderComponent
+    GolHeaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,1 @@
-<div [ngClass]="state"></div>
+<div [ngClass]="cell.isAlive ? 'alive' : 'death'" (click)="setCellState()"></div>
