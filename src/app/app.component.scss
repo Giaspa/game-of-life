@@ -1,0 +1,23 @@
+@import '../assets.scss';
+
+div {
+    &.container {
+        background-color: $light;
+        position: relative;
+        padding: 10px;
+        margin: 20px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    & > .container--header {
+        background-color: $dark-green;
+        padding: 5px;
+    }
+
+    & > .container--grid {
+        display: flex;
+        justify-content: center;
+    }
+}

@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GolGridComponent } from '../components/gol-grid/gol-grid.component';
+import { GolCellComponent } from '../components/gol-cell/gol-cell.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GolGridComponent,
+    GolCellComponent
   ],
   imports: [
     BrowserModule,

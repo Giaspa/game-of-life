@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import './assets.scss';
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-color: $black;
+}
+
+h1, h2 {
+    background-color: $dark-green;
+    color: $light;
+    margin: 0
+}
+
+app-root {
+    display: flex;
+    justify-content: center;
+}
