@@ -1,9 +1,9 @@
-@import '../../assets.scss';
+@import '../../../assets.scss';
 
 div{
     padding-top: 100%;
     background-color: $light;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5px $dark-blue;
     &.alive{
         background-color: $green;
     }

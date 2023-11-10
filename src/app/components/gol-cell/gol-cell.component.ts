@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+
+export type CellState = 'alive' | 'death'
 
 @Component({
   selector: 'gol-cell',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./gol-cell.component.scss']
 })
 export class GolCellComponent {
-
+  @Input() state: CellState = 'death'
 }
