@@ -8,4 +8,7 @@ div{
     &.alive{
         background-color: $green;
     }
+    &.disabled{
+        cursor: not-allowed;
+    }
 }

@@ -15,28 +15,38 @@ export class GolHeaderComponent implements OnInit {
   constructor(
     private readonly cellService: CellService,
     private readonly gridService: GridService,
-    private readonly settingsService: SettingsService,
+    readonly settingsService: SettingsService,
   ) { }
 
   ngOnInit(): void {
     this.iterations = this.settingsService.getIterations();
   }
 
-  startGame(): void {    
+  startGame(): void {
+    this.settingsService.setIsGameRunning(true);
+
     const OLD_CELLS_SET: Cell[] = this.gridService.getCells();
-    let newCellsSet: Cell[] = OLD_CELLS_SET.map(cell => {return {...cell} as Cell});
-    
+    let newCellsSet: Cell[] = OLD_CELLS_SET.map(cell => { return { ...cell } as Cell });
+
     newCellsSet.forEach(cell => {
       const PREV_CELL: Cell = this.gridService.getCell(cell.id)
       cell.isAlive = this.cellService.getCellSurvivalRules(PREV_CELL) === 'alive' ? true : false;
     });
 
     this.iterations--;
-    console.count()
+    console.log(`Round: ${100 - this.iterations}`)
 
     setTimeout(() => {
-     this.iterations > 0 && this.startGame();
-     this.gridService.setCells(newCellsSet)
+      const STABILITY: boolean = JSON.stringify(OLD_CELLS_SET) === JSON.stringify(newCellsSet);
+
+      if (this.iterations > 0 && this.settingsService.getIsGameRunning() && !STABILITY) {
+        this.startGame();
+      } else if ((this.iterations === 0 && this.settingsService.getIsGameRunning()) || STABILITY) {
+        this.iterations = this.settingsService.getIterations();
+        this.pauseGame();
+      }
+
+      this.gridService.setCells(newCellsSet)
     }, this.settingsService.getDelay())
   }
 
@@ -44,5 +54,9 @@ export class GolHeaderComponent implements OnInit {
     console.clear();
     this.iterations = this.settingsService.getIterations();
     this.gridService.resetCells();
+  }
+
+  pauseGame(): void {
+    this.settingsService.setIsGameRunning(false);
   }
 }

@@ -7,6 +7,7 @@ export class SettingsService {
   private rowsPerColumns: number = 144;
   private iterations: number = 100;
   private delay: number = 200;
+  private isGameRunning: boolean = false;
 
   constructor() { }
 
@@ -32,6 +33,14 @@ export class SettingsService {
 
   getDelay(): number {
     return this.delay
+  }
+
+  setIsGameRunning(isGameRunning: boolean){
+    this.isGameRunning = isGameRunning;
+  }
+
+  getIsGameRunning(): boolean {
+    return this.isGameRunning
   }
 
 }

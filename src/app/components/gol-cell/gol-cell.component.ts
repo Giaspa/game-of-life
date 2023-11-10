@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cell } from 'src/app/models/cell.model';
-import { CellService } from 'src/app/services/cell.service';
-import { GridService } from 'src/app/services/grid.service';
+import { SettingsService } from 'src/app/services/settings.service';
 
 export type CellState = 'alive' | 'death'
 
@@ -14,14 +13,20 @@ export class GolCellComponent implements OnInit {
   @Input() state: CellState = 'death'
   @Input() cell!: Cell;
 
-  constructor(private readonly cellService: CellService) { }
+  constructor(
+    private readonly settingsService: SettingsService,
+  ) { }
 
   ngOnInit(): void {
   }
 
   setCellState() {
-    this.cell.isAlive = !this.cell.isAlive;
+    if (!this.isGameRunning()) {
+      this.cell.isAlive = !this.cell.isAlive;
+    }
+  }
 
-    console.log(this.cellService.getCellSurvivalRules(this.cell))
+  isGameRunning(): boolean {
+    return this.settingsService.getIsGameRunning();
   }
 }
