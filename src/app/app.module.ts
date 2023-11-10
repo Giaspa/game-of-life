@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { GolGridComponent } from './components/gol-grid/gol-grid.component';
 import { GolCellComponent } from './components/gol-cell/gol-cell.component';
+import { GolHeaderComponent } from './components/gol-header/gol-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GolGridComponent,
-    GolCellComponent
+    GolCellComponent,
+    GolHeaderComponent
   ],
   imports: [
     BrowserModule,
