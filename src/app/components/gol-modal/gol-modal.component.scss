@@ -60,14 +60,3 @@
         }
     }
 }
-
-div.input-range--group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-    &>label:nth-child(1) {
-        font-weight: bold;
-    }
-}

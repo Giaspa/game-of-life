@@ -16,8 +16,8 @@ export class GolHeaderComponent implements OnInit {
 
   constructor(
     private readonly cellService: CellService,
-    private readonly gridService: GridService,
-    readonly settingsService: SettingsService,
+    protected readonly gridService: GridService,
+    protected readonly settingsService: SettingsService,
   ) { }
 
   ngOnInit(): void {

@@ -12,14 +12,19 @@ div {
         border-radius: 10px;
     }
 
-    & > .container--header {
+    &>.container--header {
         background-color: $dark-green;
         padding: 5px;
         border-radius: 3px;
     }
 
-    & > .container--grid {
+    &>.container--grid {
         display: flex;
         justify-content: center;
     }
+}
+
+gol-pattern{
+    position: absolute;
+    bottom: 5%
 }

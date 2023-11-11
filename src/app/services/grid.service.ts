@@ -19,12 +19,16 @@ export class GridService {
   }
 
   getCell(idCell: number): Cell {
-    return this.cells[idCell-1];
+    return this.cells[idCell - 1];
   }
 
   resetCells() {
     this.cells.forEach(cell => {
       cell.isAlive = false
     })
+  }
+
+  gridIsEmpty(): boolean {
+    return this.cells.every(cell => !cell.isAlive)
   }
 }

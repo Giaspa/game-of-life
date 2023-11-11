@@ -1,0 +1,57 @@
+@import '../../../assets.scss';
+
+div.pattern__button {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    background-color: $dark-green;
+    animation: pulse 3s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2px;
+    cursor: pointer;
+    &>svg {
+        fill: $light;
+    }
+}
+
+div.pattern__body{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    min-width: 250px;
+    &>.pattern__body--section{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 12px;
+        & img{
+            height: 80px;
+            aspect-ratio: 1;
+        }
+    }
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+        box-shadow: 5px 5px 10px 5px rgba(23, 48, 64, 0.5),
+         -5px -5px 10px 5px rgba(155, 155, 155, 0.5);
+	}
+
+	70% {
+		transform: scale(1);
+        box-shadow: 5px 5px 10px 15px rgba(23, 48, 64, 0),
+         -5px -5px 10px 15px rgba(199, 214, 208, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+        box-shadow: 5px 5px 10px 5px rgba(23, 48, 64, 0),
+         -5px -5px 10px 5px rgba(199, 214, 208, 0);
+
+	}
+}

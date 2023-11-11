@@ -26,7 +26,7 @@
 
         <ng-template #playButton>
             <!-- Play -->
-            <gol-button (click)="startGame()">
+            <gol-button (click)="startGame()" [disabled]="gridService.gridIsEmpty()">
                 <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 384 512">
                     <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                     <path
@@ -36,7 +36,7 @@
         </ng-template>
 
         <!-- Setting -->
-        <gol-button (click)="modal.open()" *ngIf="!settingsService.getIsGameRunning() else counter">
+        <gol-button (click)="settings.modal.open()" *ngIf="!settingsService.getIsGameRunning() else counter">
             <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
                 <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                 <path
@@ -53,4 +53,4 @@
     </div>
 </div>
 
-<gol-modal #modal></gol-modal>
+<gol-settings #settings></gol-settings>

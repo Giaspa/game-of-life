@@ -3,52 +3,15 @@
 
     <div class="modal__container">
         <div class="modal__container--header">
-            <h2>Settings</h2>
-
+            <ng-content select="[header]"></ng-content>
+            
             <div class="modal__container--action">
-                <!-- Reset settings -->
-                <gol-button (click)="resetSettingsChange()" [disabled]="isBaseSetting()">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
-                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                        <path
-                            d="M386.3 160H336c-17.7 0-32 14.3-32 32s14.3 32 32 32H464c17.7 0 32-14.3 32-32V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v51.2L414.4 97.6c-87.5-87.5-229.3-87.5-316.8 0s-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3s163.8-62.5 226.3 0L386.3 160z" />
-                    </svg>
-                </gol-button>
-
-                <!-- Save -->
-                <gol-button (click)="saveSettingsChange()">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 448 512">
-                        <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                        <path
-                            d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
-                    </svg>
-                </gol-button>
+                <ng-content select="[action]"></ng-content>
             </div>
         </div>
-
+        
         <div class="modal__container--body">
-            <!-- ROWS -->
-            <div class="input-range--group">
-                <label for="rows-range">Rows</label>
-                <input type="range" id="rows-range" name="rows-range" min="0" max="48" step="12" [(ngModel)]="newRows">
-                <label> {{newRows}} </label>
-            </div>
-
-            <!-- INTERACTIONS -->
-            <div class="input-range--group">
-                <label for="interactions-range">Iterations</label>
-                <input type="range" id="interactions-range" name="interactions-range" min="0" max="1000" step="50"
-                    [(ngModel)]="newIterations">
-                <label> {{newIterations}} </label>
-            </div>
-
-            <!-- DELAY -->
-            <div class="input-range--group">
-                <label for="delay-range">Delay</label>
-                <input type="range" id="delay-range" name="delay-range" min="0" max="1000" step="50"
-                    [(ngModel)]="newDelay">
-                <label> {{newDelay}} </label>
-            </div>
+            <ng-content select="[body]"></ng-content>
         </div>
     </div>
 </div>

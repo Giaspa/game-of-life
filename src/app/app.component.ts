@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private readonly settingsService: SettingsService,
-    private readonly gridService: GridService,
+    readonly gridService: GridService,
     ){}
 
   ngOnInit(): void {

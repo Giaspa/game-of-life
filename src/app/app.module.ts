@@ -10,6 +10,8 @@ import { GolHeaderComponent } from './components/gol-header/gol-header.component
 import { FormsModule } from '@angular/forms';
 import { GolModalComponent } from './components/gol-modal/gol-modal.component';
 import { GolButtonComponent } from './components/gol-button/gol-button.component';
+import { GolSettingsComponent } from './components/gol-settings/gol-settings.component';
+import { GolPatternComponent } from './components/gol-pattern/gol-pattern.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { GolButtonComponent } from './components/gol-button/gol-button.component
     GolHeaderComponent,
     GolModalComponent,
     GolButtonComponent,
+    GolSettingsComponent,
+    GolPatternComponent,
   ],
   imports: [
     BrowserModule,
