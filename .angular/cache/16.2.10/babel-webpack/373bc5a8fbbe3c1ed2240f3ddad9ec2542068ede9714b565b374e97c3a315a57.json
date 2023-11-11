@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Utilities {\n  static setGap(num) {\n    if (num <= 12) {\n      return 3;\n    } else if (num > 12 && num < 24) {\n      return 2;\n    } else if (num >= 24 && num < 36) {\n      return 1;\n    } else {\n      return 0;\n    }\n  }\n}","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
