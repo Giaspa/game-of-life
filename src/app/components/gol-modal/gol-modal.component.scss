@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
 
-    &>.modal__mask{
+    &>.modal__mask {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -38,7 +38,16 @@
             justify-content: space-between;
             align-items: center;
             border-radius: 4px;
+
+            &>.modal__container--action {
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                gap: 10px;
+                padding: 0 10px;
+            }
         }
+
 
         &>.modal__container--body {
             padding: 12px 0;

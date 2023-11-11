@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Cell } from 'src/app/models/cell.model';
 import { CellService } from 'src/app/services/cell.service';
 import { GridService } from 'src/app/services/grid.service';
@@ -11,6 +12,7 @@ import { SettingsService } from 'src/app/services/settings.service';
 })
 export class GolHeaderComponent implements OnInit {
   iterations: number = 100;
+  private iterationsSubscription!: Subscription;
 
   constructor(
     private readonly cellService: CellService,
@@ -20,6 +22,9 @@ export class GolHeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.iterations = this.settingsService.getIterations();
+    this.iterationsSubscription = this.settingsService.iterationsUpdated.subscribe(iterations => {
+      this.iterations = this.settingsService.getIterations()
+    })
   }
 
   startGame(): void {

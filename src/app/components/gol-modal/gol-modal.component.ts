@@ -22,11 +22,28 @@ export class GolModalComponent {
     this.newDelay = this.settingsService.getDelay();
   }
 
-  open(){
+  open() {
     this.isOpen = true;
   }
 
-  close(){
+  close() {
     this.isOpen = false;
+  }
+
+  protected saveSettingsChange() {
+    this.settingsService.setRows(this.newRows);
+    this.settingsService.setIterations(this.newIterations);
+    this.settingsService.setDelay(this.newDelay);
+    this.close();
+  }
+
+  isBaseSetting(): boolean {
+    return this.newRows === 12 && this.newIterations === 100 && this.newDelay === 200;
+  }
+
+  resetSettingsChange() {
+    this.newRows = 12;
+    this.newIterations = 100;
+    this.newDelay = 200;
   }
 }

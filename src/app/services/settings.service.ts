@@ -7,6 +7,7 @@ export class SettingsService {
   private rows: number = 12;
   rowsUpdated = new EventEmitter<number>();
   private iterations: number = 100;
+  iterationsUpdated = new EventEmitter<number>();
   private delay: number = 200;
   private isGameRunning: boolean = false;
 
@@ -23,6 +24,7 @@ export class SettingsService {
 
   setIterations(iterations: number){
     this.iterations = iterations;
+    this.iterationsUpdated.emit(iterations);
   }
 
   getIterations(): number {
