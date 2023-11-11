@@ -59,4 +59,5 @@ export class GolHeaderComponent implements OnInit {
   pauseGame(): void {
     this.settingsService.setIsGameRunning(false);
   }
+
 }

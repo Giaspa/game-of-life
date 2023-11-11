@@ -12,13 +12,66 @@ body {
     background-color: $dark-blue;
 }
 
-h1, h2 {
+h1,
+h2 {
     background-color: $dark-green;
     color: $light;
-    margin: 0
+    margin: 0;
+}
+
+label,
+span {
+    color: $dark-blue;
 }
 
 app-root {
     display: flex;
     justify-content: center;
+}
+
+input[type='range'] {
+    accent-color: $green;
+    width: 100%;
+    min-width: 250px;
+
+    &:hover {
+        cursor: grab;
+    }
+
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+button {
+    &:disabled:hover {
+        cursor: not-allowed;
+
+        & svg {
+            cursor: not-allowed;
+            transform: rotate(15deg)
+        }
+    }
+
+    &>svg {
+        fill: $light;
+    }
+
+    &:not(:disabled) {
+        &:hover {
+            & svg {
+                transform: scale(105%)
+            }
+        }
+
+        &:active {
+            & svg {
+                transform: scale(95%)
+            }
+        }
+    }
+
+    &:disabled>svg {
+        fill: $green;
+    }
 }

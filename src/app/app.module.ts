@@ -7,6 +7,9 @@ import { CommonModule } from '@angular/common';
 import { GolGridComponent } from './components/gol-grid/gol-grid.component';
 import { GolCellComponent } from './components/gol-cell/gol-cell.component';
 import { GolHeaderComponent } from './components/gol-header/gol-header.component';
+import { FormsModule } from '@angular/forms';
+import { GolModalComponent } from './components/gol-modal/gol-modal.component';
+import { GolButtonComponent } from './components/gol-button/gol-button.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { GolHeaderComponent } from './components/gol-header/gol-header.component
     GolGridComponent,
     GolCellComponent,
     GolHeaderComponent,
+    GolModalComponent,
+    GolButtonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

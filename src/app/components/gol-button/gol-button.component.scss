@@ -1,0 +1,23 @@
+@import '../../../assets.scss';
+
+button {
+    height: 40px;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $dark-green;
+    box-shadow: 5px 5px 10px #3c5826, -5px -5px 10px #527834;
+
+    &:not(:disabled):hover {
+        background: linear-gradient(145deg, #4c6f30, #405e29);
+        box-shadow: 5px 5px 10px #3c5826, -5px -5px 10px #527834;
+        cursor: pointer;
+    }
+
+    &:not(:disabled):active {
+        box-shadow: inset 5px 5px 10px #3c5826, inset -5px -5px 10px #527834;
+    }
+}
