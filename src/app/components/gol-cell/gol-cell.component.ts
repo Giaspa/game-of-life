@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Cell } from 'src/app/models/cell.model';
 import { SettingsService } from 'src/app/services/settings.service';
+import { Utilities } from 'src/app/utilities';
 
 export type CellState = 'alive' | 'death'
 
@@ -28,5 +29,13 @@ export class GolCellComponent implements OnInit {
 
   isGameRunning(): boolean {
     return this.settingsService.getIsGameRunning();
+  }
+
+  setStyleCell(){
+    const ROWS = this.settingsService.getRows();
+ 
+    return {
+      borderRadius: `${Utilities.setGap(ROWS)}px`,
+    }
   }
 }

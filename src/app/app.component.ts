@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cell } from './models/cell.model';
 import { SettingsService } from './services/settings.service';
 import { GridService } from './services/grid.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { GridService } from './services/grid.service';
 })
 export class AppComponent implements OnInit {
   title = 'game-of-life';
+  private rowsSubscription!: Subscription;
 
   constructor(
     private readonly settingsService: SettingsService,
@@ -17,14 +19,19 @@ export class AppComponent implements OnInit {
     ){}
 
   ngOnInit(): void {
-    this.createCells(this.settingsService.getRowsPerColumns());
+    this.createCells();
+    this.rowsSubscription = this.settingsService.rowsUpdated.subscribe(updatedRows => {
+      this.createCells();
+    })
   }
 
-  createCells(cellsNumber: number) {
+  createCells() {
+    const ROWS = this.settingsService.getRows();
+    const GRID_CELLS: number = ROWS*ROWS;
     const CELLS: Cell[] = [];
 
-    for (let i = 0; i < cellsNumber; i++) {
-      CELLS.push(new Cell(i+1, cellsNumber));
+    for (let i = 0; i < GRID_CELLS; i++) {
+      CELLS.push(new Cell(i+1, GRID_CELLS));
     }
 
     this.gridService.setCells(CELLS);

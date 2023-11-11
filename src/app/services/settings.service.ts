@@ -1,22 +1,24 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingsService {
-  private rowsPerColumns: number = 144;
+  private rows: number = 12;
+  rowsUpdated = new EventEmitter<number>();
   private iterations: number = 100;
   private delay: number = 200;
   private isGameRunning: boolean = false;
 
   constructor() { }
 
-  setRowsPerColumns(rows: number){
-    this.rowsPerColumns = rows;
+  setRows(rows: number){
+    this.rows = rows;
+    this.rowsUpdated.emit(rows);
   }
 
-  getRowsPerColumns(): number {
-    return this.rowsPerColumns
+  getRows(): number {
+    return this.rows
   }
 
   setIterations(iterations: number){

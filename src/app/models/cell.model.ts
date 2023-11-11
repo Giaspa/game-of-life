@@ -14,8 +14,17 @@ export class Cell {
          *  P_4 |  X  | P_5
          *  P_6 | P_7 | P_8
          */
-        const [P_1, P_2, P_3, P_4, P_5, P_6, P_7, P_8] = [id - 13, id - 12, id - 11, id - 1, id + 1, id + 11, id + 12, id + 13,]
         const MAX_SQRT = Math.sqrt(max);
+        const [P_1, P_2, P_3, P_4, P_5, P_6, P_7, P_8] = [
+            id - (MAX_SQRT + 1),
+            id - (MAX_SQRT),
+            id - (MAX_SQRT - 1),
+            id - 1,
+            id + 1,
+            id + (MAX_SQRT - 1),
+            id + (MAX_SQRT),
+            id + (MAX_SQRT + 1)
+        ];
         const DX_LIMIT: number[] = [];
         const SX_LIMIT: number[] = [1];
         let siglings: number[] = [P_1, P_2, P_3, P_4, P_5, P_6, P_7, P_8]
